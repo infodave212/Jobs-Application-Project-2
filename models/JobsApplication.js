@@ -11,7 +11,35 @@ JobsApplication.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    name: {
+    applicant: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    phoneNumber: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    address: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    City: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    State: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    resume: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    email: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    JobTitle: {
       type: DataTypes.STRING,
       allowNull: false,
     },
