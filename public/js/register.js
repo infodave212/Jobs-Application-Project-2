@@ -1,16 +1,18 @@
 async function newForm(){
-    const applicant = document.getElementById("applicant")
-    const phoneNumber = document.getElementById("phoneNumber")
-    const address = document.getElementById("address")
-    const city = document.getElementById("city")
-    const state = document.getElementById("state")
-    const resume = document.getElementById("resume")
-    const email = document.getElementById("email")
-    const  JobTitle = document.getElementById("JobTitle")
-    if (applicant && phoneNumber && address && city && state && resume && email && email && JobTitle) {
-        const response = await fetch(`/api/application`, {
+    const applicant = document.getElementById("applicant").value
+    const phoneNumber = document.getElementById("phoneNumber").value
+    const address = document.getElementById("address").value
+    const City = document.getElementById("City").value
+    const State = document.getElementById("State").value
+    const resume = document.getElementById("resume").value
+    const email = document.getElementById("email").value
+    const description = document.getElementById("description").value
+    const  JobTitle = document.getElementById("JobTitle").value
+    alert(applicant + phoneNumber + JobTitle + address + City + State + email + description + resume )
+    if (applicant && phoneNumber && address && City && State && resume && email && JobTitle && description) {
+        const response = await fetch(`/api/applications`, {
           method: 'POST',
-          body: JSON.stringify({ applicant, phoneNumber, address, city, state, resume , JobTitle}),
+          body: JSON.stringify({ applicant, phoneNumber, address, City, State, description, resume , JobTitle}),
           headers: {
             'Content-Type': 'application/json',
           },
