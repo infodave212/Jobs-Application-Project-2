@@ -23,3 +23,4 @@ async function newForm(){
         }
       }
 }
+document.querySelector(".btnRegister").addEventListener("click",newForm)
