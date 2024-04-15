@@ -6,3 +6,6 @@ This project is a good example or template to show employers the various needed 
 The main and most important purpose or aim of this project(project-2) is to sell or show your collaboration, deployment, and attentive to details that is paramant when it comes to landing one a good job in the development industry or as a developer.
 
 The employer want to see how one work with other developers and method of solving technical coding problems.
+https://github.com/infodave212/Project-2
+https://dashboard.heroku.com/apps/job-application/resources
+
