@@ -8,18 +8,18 @@ async function newForm(){
     const email = document.getElementById("email").value
     const description = document.getElementById("description").value
     const  JobTitle = document.getElementById("JobTitle").value
-    alert(applicant + phoneNumber + JobTitle + address + City + State + email + description + resume )
+    
     if (applicant && phoneNumber && address && City && State && resume && email && JobTitle && description) {
         const response = await fetch(`/api/applications`, {
           method: 'POST',
-          body: JSON.stringify({ applicant, phoneNumber, address, City, State, description, resume , JobTitle}),
+          body: JSON.stringify({ applicant, phoneNumber, address,email, City, State, description, resume , JobTitle}),
           headers: {
             'Content-Type': 'application/json',
           },
         });
     
         if (response.ok) {
-          document.location.replace('/profile');
+          document.location.replace('/');
         } else {
           alert('Failed to create project');
         }

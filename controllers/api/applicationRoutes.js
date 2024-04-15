@@ -3,16 +3,17 @@ const JobsApplication = require('../../models/JobsApplication');
 const withAuth = require('../../utils/auth');
 
 router.post('/', withAuth, async (req, res) => {
-    try {
+    console.log(req.body)
+    // try {
         const jobApplicationData = await JobsApplication.create({
             ...req.body,
             user_id: req.session.user_id,
         });
 
         res.status(200).json(jobApplicationData);
-    } catch (err) {
-        res.status(400).json(err);
-    }
+    // } catch (err) {
+        // res.status(400).json(err);
+    // }
 });
 
 router.delete('/:id', withAuth, async (req, res) => {
