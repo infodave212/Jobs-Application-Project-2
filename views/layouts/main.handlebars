@@ -13,6 +13,7 @@
 </head>
 
 <body>
+  <div id="container">   
   <div class="flex-column justify-space-around">
     <header class="display-flex justify-space-between align-center p-2">
       <h1>
@@ -37,11 +38,56 @@
       
     </footer>
   </div>
-
+</div>
   <!-- Render script for logged in users only -->
   {{#if logged_in}}
   <script src="/js/logout.js"></script>
   {{/if}}
+  <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+<script
+      src="https://cdnjs.cloudflare.com/ajax/libs/screenfull.js/5.2.0/screenfull.min.js"
+      integrity="sha512-GoG2/bE6QSPKSrjuoII6iPL2ODnwUJvFgysFYLTW2ltpx6G5nj+mYvhPq5rLPZby0rdMFU2fo4BMlWND7+QZ5g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+<script>
+      $(function () {
+        $("#supported").text(`Supported/allowed: ${screenfull.isEnabled}`);
+
+        if (!screenfull.isEnabled) {
+          return false;
+        }
+        $("#toggleBtn").click(async () => {
+          await screenfull.toggle($("#container")[0]);
+          console.log(`Fullscreen mode: ${screenfull.isFullscreen ? "enabled" : "disabled"}`);
+        });
+      });
+    </script>
+<script>
+  document.fullscreenEnabled =
+	document.fullscreenEnabled ||
+	document.mozFullScreenEnabled ||
+	document.documentElement.webkitRequestFullScreen;
+
+function requestFullscreen(element) {
+	if (element.requestFullscreen) {
+		element.requestFullscreen();
+	} else if (element.mozRequestFullScreen) {
+		element.mozRequestFullScreen();
+	} else if (element.webkitRequestFullScreen) {
+		element.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);
+	}
+}
+
+if (document.fullscreenEnabled) {
+	requestFullscreen(document.documentElement);
+}
+</script>
 </body>
 
 </html>
